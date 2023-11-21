@@ -1,1 +1,102 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .new-scrolling-div-c {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .link {
+        width: 10rem;
+        height: 10rem;
+        font: 300 1.55rem/1.4 "Josefin Sans";
+        text-transform: uppercase;
+        letter-spacing: 0.1175em;
+        word-spacing: 0.3em;
+        transform: rotate(90deg);
+    }
+    .new-scrolling-div-c {
+        position: absolute;
+        bottom: 0%;
+        z-index: 9;
+        left: 45%;
+    }
+    .link__svg {
+        width: 70%;
+        height: auto;
+        transform-box: fill-box;
+        fill: #000;
+        stroke: #000;
+        stroke-width: 0.05em;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        font-weight: 700;
+    }
+    #down-arrow {
+        position: absolute !important;
+        top: calc(100vh - 80px) !important;
+        left: calc(50% - 14px) !important;
+        width: 0 !important;
+        height: 30px !important;
+        border: 2px solid !important;
+        border-radius: 2px !important;
+        animation: jumpInfinite 1.5s infinite !important;
+    }
+    #down-arrow::after {
+        content: " " !important;
+        position: absolute !important;
+        top: 12px !important;
+        left: -10px !important;
+        width: 16px !important;
+        height: 16px !important;
+        border-bottom: 4px solid !important;
+        border-right: 4px solid !important;
+        border-radius: 4px !important;
+        transform: rotate(45deg) !important;
+    }
+    .link__arrow {
+        stroke-width: 0.075em;
+    }
+    .link__text {
+        -webkit-animation: rotateReverse normal infinite 20s linear;
+        animation: rotateReverse normal infinite 20s linear;
+        transform-origin: 50% 50%;
+    }
+    @keyframes rotate {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes rotateReverse {
+        to {
+            transform: rotate(-360deg);
+        }
+    }
+    </style>
+    
+</head>
+<body>
+    
+    
+<a href="#" class="link new-scrolling-div-c">
+	<svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg" class="link__svg" aria-labelledby="link1-title link1-desc">
+		<title id="link1-title">Come quick and click this</title>
+		<desc id="link1-desc">A rotating link with text placed around a circle with an arrow inside</desc>
+		<path id="link-circle" class="link__path" d="M 20, 100 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" stroke="none" fill="none"></path>
+		<path class="link__arrow" d="M 75 100 L 125 100 L 110 85 M 125 100 L 110 115" fill="none" id="down-arrow"></path>
+		<text class="link__text">
+			<textPath href="#link-circle" stroke="none">
+            SCROLL DOWN - SCROLL DOWN
+			</textPath>
+		</text>
+	</svg>
+</a>
+
+</body>
+</html>
