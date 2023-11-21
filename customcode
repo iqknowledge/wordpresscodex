@@ -1,0 +1,665 @@
+================================================================
+HTML SECTION FORMATE -> 8779866306 -> V Number 
+================================================================
+https://flickity.metafizzy.co/
+
+<section class="services-section">
+    <div class="container">
+        <div class="services-row">
+
+            <div class="services-l-column">
+                <!-- Content for the first column goes here -->
+            </div>
+
+            <div class="services-r-column">
+                <!-- Content for the second column goes here -->
+            </div>
+
+        </div>
+    </div>
+</section>
+
+admin-udit
+admin-udit@123
+
+================================================================
+WORDPRESS CUSTOM TEMPLATE FILE NAME REFERENCES
+================================================================
+
+Blog Main Page -> Template Name -> archive.php
+Blog Detail Page -> Template Name -> single.php
+Custom Post List Main Page -> Template Name -> archive-service.php
+Custom Post Detail Page -> Template Name -> single-service.php
+
+
+================================================================
+CUSTOM CONTAINER HTML WITH RESPONSIVE 
+================================================================
+
+<style>
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+@media (max-width: 1600px) {
+  .container {
+    width: 100%;
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .container {
+    width: 100%;
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1366px) {
+  .container {
+    width: 100%;
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .container {
+    width: 100%;
+    max-width: 1100px; /* or any other value that suits your design */
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    width: 100%;
+    max-width: 768px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    width: 100%;
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: 100%;
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 567px) {
+  .container {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+</style>
+
+================================================================
+CREATE TEMPLATE FILE IN TEMPLATES Folder
+================================================================
+
+<?php
+/*
+Template Name: TEMPLATE NAME HERE
+*/
+get_header(); ?>
+
+<!-- Custom Code Start Here -->
+
+<!-- Custom Code End Here  -->
+
+<?php get_footer(); ?>
+
+================================================================
+CREATE SHORTCODE IN WORDPRESS 
+================================================================
+
+<?php
+
+function custom_services_shortcode() {
+    ob_start();
+    ?>
+    <section class="services-section">
+        <div class="container">
+            <div class="services-row">
+                <div class="services-image">
+                    <!-- Content for the first column goes here -->
+                </div>
+                <div class="services-content">
+                    <!-- Content for the second column goes here -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('custom_services', 'custom_services_shortcode');
+
+?>
+<!-- Use This Shortcode : [custom_services]  -->
+================================================================
+OWL SLIDER LINK ADD IN FUNCTION FILE ENQUEE SCRIPTS
+================================================================
+
+<?php
+
+function add_owl_carousel_scripts() {
+
+    // jQuery from CDN
+    wp_deregister_script('jquery');
+    wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js', false, '3.6.0', true);
+    wp_enqueue_script('jquery');
+
+    // Owl Carousel CSS
+    wp_enqueue_style('owl-carousel-css', 'https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css');
+
+    // Owl Carousel JavaScript
+    wp_enqueue_script('owl-carousel-js', 'https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js', array('jquery'), '2.3.4', true);
+}
+
+add_action('wp_enqueue_scripts', 'add_owl_carousel_scripts');
+
+?>
+
+================================================================
+SLICK SLIDER LINK ADD IN FUNCTION FILE ENQUEE SCRIPTS
+================================================================
+
+<?php
+
+function add_slick_carousel_scripts() {
+    // jQuery from CDN
+    wp_deregister_script('jquery');
+    wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js', false, '3.6.0', true);
+    wp_enqueue_script('jquery');
+
+    // slick CSS
+    wp_enqueue_style('slick-css', 'https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick.css');
+	 wp_enqueue_style('slick-css-theme', 'https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick-theme.css');
+
+    // slick JavaScript
+    wp_enqueue_script('slick-js', 'https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick.min.js', array('jquery'), '2.3.4', true);
+}
+
+add_action('wp_enqueue_scripts', 'add_slick_carousel_scripts');
+
+?>
+
+================================================================
+ADD CUSTOM CSS & JS FILE -- ADD CODE IN FUNCTION FILE
+================================================================
+
+<?php
+
+function enqueue_custom_styles() {
+    wp_enqueue_style( 'custom-style', get_template_directory_uri() . '/custom-css/custom.css', array(), '1.0', 'all' );
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_custom_styles' );
+
+function enqueue_custom_scripts() {
+    wp_enqueue_script( 'custom-script', get_template_directory_uri() . '/custom-js/customjs.js', array( 'jquery' ), '1.0', true );
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_custom_scripts' );
+
+?>
+================================================================
+ADD CUSTOM CSS & JS FILE Child Theme -- ADD CODE IN FUNCTION FILE
+================================================================
+<?php
+// Enqueue custom styles
+function enqueue_custom_styles() {
+    // Use get_stylesheet_directory_uri() for child theme
+    wp_enqueue_style( 'custom-style', get_stylesheet_directory_uri() . '/custom-css/custom.css', array(), '1.0', 'all' );
+}
+// Hook the function to wp_enqueue_scripts
+add_action( 'wp_enqueue_scripts', 'enqueue_custom_styles' );
+
+// Enqueue custom scripts
+function enqueue_custom_scripts() {
+    // Use get_stylesheet_directory_uri() for child theme
+    wp_enqueue_script( 'custom-script', get_stylesheet_directory_uri() . '/custom-js/custom.js', array( 'jquery' ), '1.0', true );
+}
+// Hook the function to wp_enqueue_scripts
+add_action( 'wp_enqueue_scripts', 'enqueue_custom_scripts' );
+
+?>
+================================================================
+ADD MAGNIFIC POPUP
+================================================================
+<!-- https://dimsemenov.com/plugins/magnific-popup/ -->
+
+<?php
+
+function enqueue_magnific_popup_cdn() {
+    // Enqueue Magnific Popup from CDN
+    wp_enqueue_script( 'magnific-popup', 'https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js', array('jquery'), '1.1.0', true );
+
+    // Enqueue Magnific Popup CSS from CDN
+    wp_enqueue_style( 'magnific-popup-css', 'https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css', array(), '1.1.0', 'all' );
+}
+
+add_action( 'wp_enqueue_scripts', 'enqueue_magnific_popup_cdn' );
+
+?>
+================================================================
+ADD FONT AWESOME - ADD CODE IN FUNCTION FILE
+================================================================
+
+<?php
+
+function enqueue_font_awesome() {
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+}
+add_action('wp_enqueue_scripts', 'enqueue_font_awesome');
+
+?>
+
+================================================================
+ADD EXCERPT OPTION IN CUSTOM POST - FUNCTION FILE
+================================================================
+
+<?php
+
+function wpcodex_add_excerpt_support_for_post() {
+    add_post_type_support( 'service', 'excerpt' ); // Replace Post Name Here services
+}   
+add_action( 'init', 'wpcodex_add_excerpt_support_for_post' );
+
+?>
+
+================================================================
+CUSTOM POST LISTING CODE -- CREATE TEMPLATE PROJECTLIST.PHP
+================================================================
+
+<?php
+        $args = array(
+            'post_type' => 'projects', // Replace 'projects' with your custom post type name
+            'posts_per_page' => -1, // Display all posts
+        );
+
+        $query = new WP_Query($args);
+
+        if ($query->have_posts()) :
+            while ($query->have_posts()) : $query->the_post();
+        ?>
+
+        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+            <a href="<?php the_permalink(); ?>" class="link-full-column-cus">
+
+                <?php if (has_post_thumbnail()) { ?>
+                    <div class="featured-image">
+                        <?php the_post_thumbnail(); ?>
+                    </div>
+                <?php } ?>
+
+                <h2 class="entry-title"><?php the_title(); ?></h2>
+            </a>
+
+            <div class="entry-content">
+                <?php the_excerpt(); ?>
+            </div>
+
+            <a class="read-more" href="<?php the_permalink(); ?>">Read more</a>
+
+        </article>
+
+        <?php
+            endwhile;
+            wp_reset_postdata();
+        else :
+            echo 'No projects found';
+        endif;
+        ?>
+
+================================================================
+ACF FLEXIBLE CONTENT - COMPONENT FILE CALL IN SECTION
+================================================================
+
+<?php if (have_rows('flexible_content_main_section')) : ?>
+    <?php while (have_rows('flexible_content_main_section')) : the_row(); ?>
+
+        <?php if (get_row_layout() === 'section-one-flexi') : ?>
+            <?php get_template_part('template-parts/partial/section-one-flexible-try', 'section-one-flexi'); ?>
+        <?php endif; ?> 
+
+    <?php endwhile; ?>
+<?php endif; ?>
+
+================================================================
+ACF REPEATER FIELD SYNTAX 
+================================================================
+
+<?php if ( have_rows( 'acf_repeater_example' ) ) : ?>
+	<?php while ( have_rows( 'acf_repeater_example' ) ) : the_row(); ?>
+		
+        <!------------------------------------------
+        ADD CODE HERE YOU WANT REPEAT ITEM 
+         ------------------------------------------>
+
+	<?php endwhile; ?>
+<?php endif; ?>
+
+================================================================
+CIRCLE SCROLL DOWN  ANMATION WITH CIRCLE INFNITE
+================================================================
+<style>
+    .new-scrolling-div-c {
+    display: flex;
+    justify-content: center;
+}
+
+.link {
+    width: 10rem;
+    height: 10rem;
+    font: 300 1.55rem/1.4 "Josefin Sans";
+    text-transform: uppercase;
+    letter-spacing: 0.1175em;
+    word-spacing: 0.3em;
+    transform: rotate(90deg);
+}
+.new-scrolling-div-c {
+    position: absolute;
+    bottom: 0%;
+    z-index: 9;
+    left: 45%;
+}
+.link__svg {
+    width: 70%;
+    height: auto;
+    transform-box: fill-box;
+    fill: #000;
+    stroke: #000;
+    stroke-width: 0.05em;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    font-weight: 700;
+}
+#down-arrow {
+    position: absolute !important;
+    top: calc(100vh - 80px) !important;
+    left: calc(50% - 14px) !important;
+    width: 0 !important;
+    height: 30px !important;
+    border: 2px solid !important;
+    border-radius: 2px !important;
+    animation: jumpInfinite 1.5s infinite !important;
+}
+#down-arrow::after {
+    content: " " !important;
+    position: absolute !important;
+    top: 12px !important;
+    left: -10px !important;
+    width: 16px !important;
+    height: 16px !important;
+    border-bottom: 4px solid !important;
+    border-right: 4px solid !important;
+    border-radius: 4px !important;
+    transform: rotate(45deg) !important;
+}
+.link__arrow {
+    stroke-width: 0.075em;
+}
+.link__text {
+    -webkit-animation: rotateReverse normal infinite 20s linear;
+    animation: rotateReverse normal infinite 20s linear;
+    transform-origin: 50% 50%;
+}
+@keyframes rotate {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes rotateReverse {
+	to {
+		transform: rotate(-360deg);
+	}
+}
+</style>
+
+<a href="#" class="link new-scrolling-div-c">
+	<svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg" class="link__svg" aria-labelledby="link1-title link1-desc">
+		<title id="link1-title">Come quick and click this</title>
+		<desc id="link1-desc">A rotating link with text placed around a circle with an arrow inside</desc>
+		<path id="link-circle" class="link__path" d="M 20, 100 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0" stroke="none" fill="none"></path>
+		<path class="link__arrow" d="M 75 100 L 125 100 L 110 85 M 125 100 L 110 115" fill="none" id="down-arrow"></path>
+		<text class="link__text">
+			<textPath href="#link-circle" stroke="none">
+            SCROLL DOWN - SCROLL DOWN
+			</textPath>
+		</text>
+	</svg>
+</a>
+
+================================================================
+HEADER SELECTED LOGO DYNAMIC  -  CUSTOMIZER IN LOGO SELECT
+================================================================
+
+<div class="main-header-left">
+    <a href="<?php echo esc_url(home_url('/')); ?>">
+        <?php
+            $header_logo = get_field( 'header_logo', 'options' );
+            if ( $header_logo ) : ?>
+            <img src="<?php echo esc_url( $header_logo['url'] ); ?>" alt="<?php echo esc_attr( $header_logo['alt'] ); ?>" />
+        <?php endif; ?>
+    </a>
+</div>
+
+================================================================
+DYNAMIC MENU CALL IN HEADER FILE
+================================================================
+<nav>
+    <?php
+        wp_nav_menu(array(
+            'menu' => 'Header Menu', // Replace Menu Name Here 
+            'theme_location' => 'primary',
+            'depth' => 2,
+            'container' => 'ul',
+            'menu_class' => 'main-menu__list' // Replace Class Name Here
+        ));
+    ?>
+</nav>
+================================================================
+MOBILE NAVIGATION TOGGLE MENU 
+================================================================
+
+<div class="mobile-menu-main" id="mobile-menu-main">
+    <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <ul class="toggle-menu-line">
+            <li class="toggle-line">
+                <span class="toggle-menu-bar"></span>
+                <span class="toggle-menu-bar"></span>
+                <span class="toggle-menu-bar"></span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu">
+    <span class="close-icon" id="close-icon">
+        <i class="fas fa-times"></i>
+    </span>
+    <a href="<?php echo esc_url(home_url('/')); ?>">
+    <?php
+        $custom_logo_id = get_theme_mod('custom_logo');
+        $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
+        if (has_custom_logo()) {
+            echo '<img src="' . esc_url($logo[0]) . '" alt="Logo" style="max-width:100px; height:auto; " class="mobile-toggle-logo">';
+        } else {
+            echo '<h1>' . get_bloginfo('name') . '</h1>';
+        }
+    ?>
+    </a>
+        <?php
+            wp_nav_menu(array(
+                'menu' => 'Header Menu',
+                'theme_location' => 'primary',
+                'depth' => 2,
+                'container' => 'ul',
+                'menu_class' => 'main-menu__list'
+            ));
+        ?>
+    </div>
+</div>
+
+<style>
+    .mobile-menu-main {
+    display: none;
+    }
+    .toggle-menu-line {
+    margin: 0;
+    }
+    .mobile-menu-main .toggle-line {
+    list-style: none;
+    cursor: pointer;
+    }
+    .mobile-menu-main .toggle-menu-bar {
+    display: block;
+    width: 25px;
+    height: 4px;
+    background-color: #e58139;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin: 0 auto 3px;
+    transition: background-color 0.2s;
+    }
+    .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #e58139;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 0px;
+    padding-left: 15px;
+    z-index: 99;
+    }
+    .mobile-menu-main .close-icon {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    cursor: pointer;
+    color: white;
+    border: 1px solid;
+    padding: 3px 9px;
+    border-radius: 100px;
+    cursor: pointer;
+    }
+    .main-head-cus .mobile-menu a {
+    padding: 10px 8px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #333;
+    display: block;
+    }
+    .mobile-toggle-logo {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(91%) saturate(38%) hue-rotate(254deg) brightness(110%) contrast(110%);
+    }
+    
+    @media(max-width:992px){
+        .main-head-cus .mobile-menu-main {
+            display: block;
+        }
+    }
+</style>
+
+<script> // js For Toggle Menu
+    jQuery(document).ready(function () {
+    jQuery('#mobile-menu-toggle').click(function () {
+        jQuery('.mobile-menu').toggleClass('show-menu');
+    });
+
+     jQuery('#close-icon').click(function () {
+         jQuery('.mobile-menu').removeClass('show-menu');
+    });
+});
+</script>
+
+================================================================
+DYNAMIC DATE FOR COPY RIGHT FOOTER USING SHORT CODE
+================================================================
+
+<?php
+function date_year() {
+    $year = date('Y');
+    return $year;
+}
+add_shortcode('date-year', 'date_year');
+add_filter('acf/format_value/type=textarea', 'do_shortcode');
+add_filter('acf/format_value/type=text', 'do_shortcode');
+?>
+
+<!-- ADD this Short Code -> [date-year] -->
+
+================================================================
+RECENT POST - Sidebar Add Throught Short Code
+================================================================
+<?php
+
+function recent_posts_shortcode($atts) {
+    // Set default attributes for the shortcode
+    $atts = shortcode_atts(
+        array(
+            'number' => 10, // Number of recent posts to display
+        ),
+        $atts,
+        'recent_posts'
+    );
+
+    // Get the ID of the current post
+    $current_post_id = get_the_ID();
+
+    // Query recent posts excluding the current post
+    $args = array(
+        'post_type'      => 'service',
+        'posts_per_page' => $atts['number'],
+        'post__not_in'   => array($current_post_id), // Exclude the current post
+    );
+    $recent_posts = new WP_Query($args);
+
+    // Output the recent posts
+    if ($recent_posts->have_posts()) {
+        $output = '<ul>';
+        while ($recent_posts->have_posts()) {
+            $recent_posts->the_post();
+            $output .= '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
+        }
+        $output .= '</ul>';
+        wp_reset_postdata();
+        return $output;
+    } else {
+        return 'No recent posts found.';
+    }
+}
+
+// Register the shortcode
+add_shortcode('recent_posts', 'recent_posts_shortcode');
+
+<!-- Shortcorde [recent_posts]  -->
+
+
