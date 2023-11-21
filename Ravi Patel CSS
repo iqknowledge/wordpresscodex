@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+
+	<body>
+		<!-- 😀 className  -->
+		<style>
+			.banner-title {
+				font-size: 100px;
+			} /*banner title classname*/
+			.banner-subtitle {
+				font-size: 50px;
+			} /*banner sub title classname*/
+			.title {
+				font-size: 80px;
+			} /* section title classname*/
+			.subtitle {
+				font-size: 40px;
+			} /* section sub title classname*/
+			.sec-pad {
+				padding-top: 80px;
+				padding-bottom: 80px;
+			} /*section spacing classname*/
+			.sec-container {
+				max-width: 1200px;
+				width: 100%;
+				margin: 0 auto;
+			} /* section container classname */
+		</style>
+		<!-- className  -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 Css3 variable -->
+		<style>
+			:root {
+				--color1: #f1f1f1;
+				--color2: #f4f4f4;
+				--color3: #c0c0c0;
+				--font-family-termina: Termina;
+				--font-family-montserrat: Montserrat;
+				--text-transform-up: uppercase;
+				--common-font-desc: normal normal 400 15px/24px "Montserrat", sans-serif;
+			}
+
+			.ClassName {
+				font: var(--common-font-desc);
+				color: var(--color1);
+			}
+		</style>
+		<!-- Css3 variable -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 font-size in (rem) -->
+		<style>
+			html {
+				font-size: 16px;
+			}
+			h1 {
+				font-size: 1rem; /*fontsize 16px*/
+				font-size: 2rem; /*fontsize 16 X 2 = 32px*/
+				font-size: 3rem; /*fontsize 16 X 3 = 48px */
+			}
+		</style>
+		<!-- font-size in (rem) -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 change scrollbar color & width css -->
+		<style>
+			:root {
+				scrollbar-color: #ff7300 #000 !important;
+				scrollbar-width: thin !important;
+				scroll-snap-type: y;
+			}
+
+			::-webkit-scrollbar-track {
+				-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+				background-color: #222;
+				border-radius: 0px;
+			}
+
+			::-webkit-scrollbar {
+				width: 5px;
+				background-color: #ff7300;
+			}
+
+			::-webkit-scrollbar-thumb {
+				background-color: #ff7300;
+			}
+		</style>
+		<!-- change scrollbar color & width css -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 Hide scrollbar, but while still being able to scroll -->
+		<style>
+			.ClassName {
+				overflow-y: scroll;
+				scrollbar-width: none; /* Firefox */
+				-ms-overflow-style: none; /* Internet Explorer 10+ */
+			}
+			.ClassName::-webkit-scrollbar {
+				/* WebKit */
+				width: 0;
+				height: 0;
+			}
+			/* Hide scrollbar for Chrome, Safari and Opera */
+			.ClassName::-webkit-scrollbar {
+				display: none;
+			}
+		</style>
+		<!-- Hide scrollbar, but while still being able to scroll -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 CSS-Grid-Layout https://codepen.io/lcolsant/pen/yLypWaB -->
+		<a href="https://codepen.io/lcolsant/pen/yLypWaB">Link</a>
+		<!-- CSS-Grid-Layout -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 Grid css & HTML -->
+		<section>
+			<ul class="grid-wrapper">
+				<li>item 1</li>
+				<li>item 2</li>
+				<li>item 3</li>
+				<li>item 4</li>
+				<li>item 5</li>
+				<li>item 6</li>
+				<li>item 7</li>
+				<li>item 8</li>
+				<li>item 9</li>
+				<li>item 10</li>
+				<li>item 11</li>
+				<li>item 12</li>
+			</ul>
+		</section>
+		<style>
+			.grid-wrappe {
+				display: grid;
+				grid-column-gap: 32px;
+				grid-row-gap: 32px;
+				grid-template-columns: repeat(6, minmax(auto, 1fr));
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				justify-content: center;
+			}
+		</style>
+
+		<!-- --------------------------------- -->
+		<style>
+		.mainClass {
+			display: grid;
+			grid-gap: 5px;
+			grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+			grid-auto-rows: 20%;
+			grid-auto-flow: dense;
+		}
+		.mainClass .item:first-child {
+			grid-column: span 2;
+			grid-row: span 2;
+		}
+		.mainClass .item {
+			width: initial;
+			margin-right: 0px;
+			margin-left: 0px;
+			margin-bottom: 0px;
+			float: none;
+			padding: 0 5px;
+		}
+		</style>
+		<!-- Grid css & HTML-->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 masonry layout css & HTML -->
+		<section>
+			<ul class="grid-wrapper">
+				<li>item 1</li>
+				<li>item 2</li>
+				<li>item 3</li>
+				<li>item 4</li>
+				<li>item 5</li>
+				<li>item 6</li>
+				<li>item 7</li>
+				<li>item 8</li>
+				<li>item 9</li>
+				<li>item 10</li>
+				<li>item 11</li>
+				<li>item 12</li>
+			</ul>
+		</section>
+		<style>
+			.grid-wrapper {
+				-webkit-column-count: 4;
+				-moz-column-count: 4;
+				column-count: 4;
+				column-gap: 40px;
+			}
+
+			.grid-wrapper li {
+				padding: 0;
+				margin-bottom: 40px;
+				box-sizing: border-box;
+				-webkit-column-break-inside: avoid;
+				page-break-inside: avoid;
+				break-inside: avoid;
+				counter-increment: brick-counter;
+			}
+		</style>
+		<!-- masonry layout css & HTML -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 Custom Checkbox -->
+		<form>
+			<div class="form-group">
+				<input type="checkbox" id="html" />
+				<label for="html">HTML</label>
+			</div>
+			<div class="form-group">
+				<input type="checkbox" id="css" />
+				<label for="css">CSS</label>
+			</div>
+			<div class="form-group">
+				<input type="checkbox" id="javascript" />
+				<label for="javascript">Javascript</label>
+			</div>
+		</form>
+		<style>
+			.form-group {
+				display: block;
+				margin-bottom: 15px;
+			}
+
+			.form-group input {
+				padding: 0;
+				height: initial;
+				width: initial;
+				margin-bottom: 0;
+				display: none;
+				cursor: pointer;
+			}
+
+			.form-group label {
+				position: relative;
+				cursor: pointer;
+			}
+
+			.form-group label:before {
+				content: "";
+				-webkit-appearance: none;
+				background-color: transparent;
+				border: 2px solid #0079bf;
+				box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
+					inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+				padding: 10px;
+				display: inline-block;
+				position: relative;
+				vertical-align: middle;
+				cursor: pointer;
+				margin-right: 5px;
+			}
+
+			.form-group input:checked + label:after {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 2px;
+				left: 9px;
+				width: 6px;
+				height: 14px;
+				border: solid #0079bf;
+				border-width: 0 2px 2px 0;
+				transform: rotate(45deg);
+			}
+		</style>
+		<!--  Custom Checkbox -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!--  😀Custom radio button -->
+		<form action="#">
+			<p>
+				<input type="radio" id="test1" name="radio-group" checked />
+				<label for="test1">Apple</label>
+			</p>
+			<p>
+				<input type="radio" id="test2" name="radio-group" />
+				<label for="test2">Peach</label>
+			</p>
+			<p>
+				<input type="radio" id="test3" name="radio-group" />
+				<label for="test3">Orange</label>
+			</p>
+		</form>
+		<style>
+			[type="radio"]:checked,
+			[type="radio"]:not(:checked) {
+				position: absolute;
+				left: -9999px;
+			}
+			[type="radio"]:checked + label,
+			[type="radio"]:not(:checked) + label {
+				position: relative;
+				padding-left: 28px;
+				cursor: pointer;
+				line-height: 20px;
+				display: inline-block;
+				color: #666;
+			}
+			[type="radio"]:checked + label:before,
+			[type="radio"]:not(:checked) + label:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 18px;
+				height: 18px;
+				border: 1px solid #ddd;
+				border-radius: 100%;
+				background: #fff;
+			}
+			[type="radio"]:checked + label:after,
+			[type="radio"]:not(:checked) + label:after {
+				content: "";
+				width: 12px;
+				height: 12px;
+				background: #f87da9;
+				position: absolute;
+				top: 4px;
+				left: 4px;
+				border-radius: 100%;
+				-webkit-transition: all 0.2s ease;
+				transition: all 0.2s ease;
+			}
+			[type="radio"]:not(:checked) + label:after {
+				opacity: 0;
+				-webkit-transform: scale(0);
+				transform: scale(0);
+			}
+			[type="radio"]:checked + label:after {
+				opacity: 1;
+				-webkit-transform: scale(1);
+				transform: scale(1);
+			}
+		</style>
+		<!--  Custom radio button -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 Button animation css -->
+		<!-- link : https://codepen.io/kjbrum/pen/wBBLXx -->
+		<!--  Button animation css -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀Header sticky animation  -->
+		<style>
+			.site-header.sticky-header {
+				transition: all 1s;
+				position: fixed;
+				top: 0;
+				-webkit-animation: bar 1s ease;
+			}
+
+			@keyframes bar {
+				0% {
+					top: -100px;
+				}
+
+				100% {
+					top: 0%;
+				}
+			}
+		</style>
+		<!-- Header sticky animation  -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 Full screen & div container css -->
+		<style>
+			/* 1400px is your container size */
+			.ClassName {
+				padding-right: calc(calc(100% - 1400px) / 2);
+				padding-right: -webkit-calc(calc(100% - 1400px px) / 2);
+				padding-right: -moz-calc(calc(100% - 1400px) / 2);
+				padding-left: calc(calc(100% - 1400px) / 2);
+				padding-left: -webkit-calc(calc(100% - 1400px) / 2);
+				padding-left: -moz-calc(calc(100% - 1400px) / 2);
+			}
+		</style>
+		<!-- Full screen & div container css -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 Owl Carousel 2 Navigation on Sides - Left and Right https://codepen.io/ramsh/pen/xxbaRdQ -->
+		<a href="https://codepen.io/ramsh/pen/xxbaRdQ"></a>
+		<style>
+			.owl-prev,
+			.owl-next {
+				position: absolute;
+			}
+
+			.owl-prev {
+				left: -60px;
+				top: 50%;
+				transform: translateY(-50%);
+				font-size: 40px !important;
+				background-color: transparent !important;
+				outline: none !important;
+			}
+
+			.owl-next {
+				right: -60px;
+				top: 50%;
+				transform: translateY(-50%);
+				font-size: 40px !important;
+				background-color: transparent !important;
+				outline: none !important;
+			}
+		</style>
+		<!-- Owl Carousel 2 Navigation on Sides - Left and Right  -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 slider full width only one side container  -->
+		<style>
+			/* 1540px is your container width */
+			.ClassName {
+				padding-left: calc(calc(100% - 1540px) / 2);
+				padding-left: -webkit-calc(calc(100% - 1540px) / 2);
+				padding-left: -moz-calc(calc(100% - 1540px) / 2);
+			}
+		</style>
+		<!-- slider full width only one side container  -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 Form select box css -->
+		<style>
+			select {
+				background: url("data:image/svg+xml;utf8,<svg viewBox='0 0 140 140' width='24' height='24' xmlns='http://www.w3.org/2000/svg'><g><path d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z' fill='balck'/></g></svg>")
+					no-repeat;
+				background-position: right 25px top 50%;
+				background-size: 17px;
+				cursor: pointer;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+			}
+		</style>
+		<!-- Form select box css -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 contact fomt g-recaptcha css -->
+		<style>
+			.wpcf7 .wpcf7-recaptcha iframe {
+				transform: scale(0.8);
+				transform-origin: 0 0;
+			}
+
+			.wpcf7 .recaptcha .g-recaptcha > div {
+				width: 310px !important;
+				height: 62px !important;
+			}
+		</style>
+		<!-- contact fomt g-recaptcha css -->
+
+		<!-- 😀 image hover animation -->
+		<style>
+			.overlay-plus {
+				position: relative;
+			}
+
+			.overlay-plus::before,
+			.overlay-plus::after {
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
+
+			.overlay-plus:not(:hover)::before {
+				width: 0;
+			}
+
+			.overlay-plus:not(:hover)::after {
+				height: 0;
+			}
+
+			.overlay-plus::before,
+			.overlay-plus::after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				margin: auto;
+				-webkit-transition: all 0.5s ease;
+				-moz-transition: all 0.5s ease;
+				-o-transition: all 0.5s ease;
+				transition: all 0.5s ease;
+				z-index: 2;
+				background-color: rgb(193 193 193 / 13%);
+				pointer-events: none;
+			}
+		</style>
+		<!-- image hover animation -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 Form error msg design -->
+		<style>
+			label.error {
+				background-color: #dc3232;
+				padding: 1px 5px 3px;
+				font-size: 14px;
+				position: relative;
+				color: #fff;
+			}
+
+			label.error:after {
+				content: "";
+				margin: 0 0.5em;
+				display: inline-block;
+				border: 7px solid transparent;
+				border-top: 8px solid #dc3232;
+				border-bottom: 0 none;
+				position: absolute;
+				left: 0;
+				top: -7px;
+				transform: rotate(180deg);
+			}
+		</style>
+		<!-- Form error msg design -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 Video full screen css -->
+		<style>
+			.MainDIV {
+				position: relative;
+			}
+
+			.MainDIV video,
+			.MainDIV iframe {
+				width: 100vw;
+				height: 64.25vw;
+				min-height: 100vh;
+				min-width: 161.77vh;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+			}
+		</style>
+		<!-- Video full screen css -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 line fixe css -->
+		<style>
+			.className {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+			}
+		</style>
+		<!-- line fixe css -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 clip-path css -->
+		The clip-path property allows you to make complex shapes in CSS by clipping
+		an element to a basic shape (circle, ellipse, polygon, or inset), or to an
+		SVG source. <a href="https://bennettfeely.com/clippy/" target="_blank">Link</a> : https://bennettfeely.com/clippy/
+		<!-- clip-path css -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 YT Video autoplay desktop & mobile code -->
+		
+		- Youtube link : https://www.youtube.com/embed/MoM_H6fua1A?playsinline=1&autoplay=1&playlist=MoM_H6fua1A&loop=1&enablejsapi=1&mute=1&controls=0&showinfo=1&fs=0&autopause=0&muted=1
+		- player-parameters :	?playsinline=1&autoplay=1&playlist=MoM_H6fua1A&loop=1&enablejsapi=1&mute=1&controls=0&showinfo=1&fs=0&autopause=0&muted=1
+
+		<script>
+			//jQuery(window).on('load',function(){
+			var url = jQuery("#custom-autoload").attr("src").split("?")[0];
+			var loc_id = url.split("/").pop();
+			// console.log(loc_id);
+
+			// 2. This code loads the IFrame Player API code asynchronously.
+			var tag = document.createElement("script");
+
+			tag.src = "https://www.youtube.com/iframe_api";
+			var firstScriptTag = document.getElementsByTagName("script")[0];
+			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+			// 3. This function creates an <iframe> (and YouTube player)
+			//    after the API code downloads.
+			var player;
+			function onYouTubeIframeAPIReady() {
+				player = new YT.Player("custom-autoload", {
+					width: "100%",
+					videoId: loc_id,
+					playerVars: {
+						autoplay: 1,
+						playsinline: 1,
+						playlist: "MoM_H6fua1A",
+						loop: 1,
+						enablejsapi: 1,
+						mute: 1,
+					},
+					events: {
+						onReady: onPlayerReady,
+					},
+				});
+			}
+
+			// 4. The API will call this function when the video player is ready.
+			function onPlayerReady(event) {
+				event.target.mute();
+				event.target.playVideo();
+			}
+			//});
+		</script>
+
+		<!-- YT Video autoplay desktop & mobile code -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 sticky sidebar js -->
+		<!-- link 1 : https://codepen.io/pouretrebelle/pen/kPgKpn -->
+		<script>
+			jQuery(window).on("load", function () {
+				setTimeout(function () {
+					var document_height = jQuery(window).height();
+					var pro_detail = jQuery(".summary-inner").outerHeight();
+					if (document_height < pro_detail) {
+						var hi_calculation = document_height - pro_detail;
+					}
+					jQuery(".summary-inner").css("top", hi_calculation - 30);
+				}, 2000);
+			});
+			jQuery(window).resize(function () {
+				setTimeout(function () {
+					var document_height = jQuery(window).height();
+					var pro_detail = jQuery(".summary-inner").outerHeight();
+					if (document_height < pro_detail) {
+						var hi_calculation = document_height - pro_detail;
+					}
+					jQuery(".summary-inner").css("top", hi_calculation - 30);
+				}, 2000);
+			});
+			jQuery(document).on("click", ".acc_trigger", function (e) {
+				setTimeout(function () {
+					var document_height = jQuery(window).height();
+					var pro_detail = jQuery(".summary-inner").outerHeight();
+					if (document_height < pro_detail) {
+						var hi_calculation = document_height - pro_detail;
+					}
+					jQuery(".summary-inner").css("top", hi_calculation - 30);
+				}, 2000);
+			});
+		</script>
+		<!-- sticky sidebar js -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 sticky sidebar js No:2 -->
+		<!-- link 1 : https://codepen.io/pouretrebelle/pen/kPgKpn -->
+
+		<script>
+			(function ($) {
+				$.fn.stickySidebar = function (options) {
+					var config = $.extend(
+						{
+							headerSelector: "header",
+							navSelector: "nav",
+							contentSelector: "#content",
+							footerSelector: "footer",
+							sidebarTopMargin: 20,
+							footerThreshold: 40,
+						},
+						options
+					);
+
+					var fixSidebr = function () {
+						var sidebarSelector = $(this);
+						var viewportHeight = $(window).height();
+						var viewportWidth = $(window).width();
+						var documentHeight = $(document).height();
+						var headerHeight = $(config.headerSelector).outerHeight();
+						var navHeight = $(config.navSelector).outerHeight();
+						var sidebarHeight = sidebarSelector.outerHeight();
+						var contentHeight = $(config.contentSelector).outerHeight();
+						var footerHeight = $(config.footerSelector).outerHeight();
+						var scroll_top = $(window).scrollTop();
+						var fixPosition = contentHeight - sidebarHeight;
+						var breakingPoint1 = headerHeight + navHeight;
+						var breakingPoint2 =
+							documentHeight -
+							(sidebarHeight + footerHeight + config.footerThreshold);
+
+						// calculate
+						if (
+							contentHeight > sidebarHeight &&
+							viewportHeight > sidebarHeight
+						) {
+							if (scroll_top < breakingPoint1) {
+								sidebarSelector.removeClass("sticky");
+							} else if (
+								scroll_top >= breakingPoint1 &&
+								scroll_top < breakingPoint2
+							) {
+								sidebarSelector
+									.addClass("sticky")
+									.css("top", config.sidebarTopMargin);
+							} else {
+								var negative = breakingPoint2 - scroll_top;
+								sidebarSelector.addClass("sticky").css("top", negative);
+							}
+						}
+					};
+
+					return this.each(function () {
+						$(window).on("scroll", $.proxy(fixSidebr, this));
+						$(window).on("resize", $.proxy(fixSidebr, this));
+						$.proxy(fixSidebr, this)();
+					});
+				};
+			})(jQuery);
+		</script>
+
+		<!-- sticky sidebar js No:2 -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 Equal Height js -->
+		<script>
+			jQuery(document).ready(function () {
+				equalheight = function (container) {
+					var currentTallest = 0,
+						currentRowStart = 0,
+						rowDivs = new Array(),
+						$el,
+						topPosition = 0;
+					jQuery(container).each(function () {
+						$el = jQuery(this);
+						jQuery($el).height("auto");
+						topPostion = $el.position().top;
+
+						if (currentRowStart != topPostion) {
+							for (currentDiv = 0; currentDiv < rowDivs.length; currentDiv++) {
+								rowDivs[currentDiv].height(currentTallest);
+							}
+							rowDivs.length = 0; // empty the array
+							currentRowStart = topPostion;
+							currentTallest = $el.height();
+							rowDivs.push($el);
+						} else {
+							rowDivs.push($el);
+							currentTallest =
+								currentTallest < $el.height() ? $el.height() : currentTallest;
+						}
+						for (currentDiv = 0; currentDiv < rowDivs.length; currentDiv++) {
+							rowDivs[currentDiv].height(currentTallest);
+						}
+					});
+				};
+				jQuery(window).on("load resize", function () {
+					equalheight(".product-btm-title");
+				});
+			});
+		</script>
+		<!-- Equal Height js -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+		
+		<!-- 😀 Smooth Scroll with Offset jQuery -->
+		<script>
+			$(document).ready(function(){
+				$('a[href^="#"]').on('click',function (e) {
+					e.preventDefault();
+					var target = this.hash;
+					var $target = $(target);
+					$('html, body').stop().animate({
+						'scrollTop': $target.offset().top-80
+					}, 900, 'swing', function () {
+						// window.location.hash = target;
+					});
+				});
+			});
+		</script>
+		<!-- Smooth Scroll with Offset jQuery -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 Counter JS -->
+		<script>			
+			jQuery(function ($) {
+				// Counter JS
+				$(
+					(function ($, win) {
+						$.fn.inViewport = function (cb) {
+							return this.each(function (i, el) {
+								function visPx() {
+									var H = $(this).height(),
+										r = el.getBoundingClientRect(),
+										t = r.top,
+										b = r.bottom;
+									return cb.call(el, Math.max(0, t > 0 ? H - t : b < H ? b : H));
+								}
+								visPx();
+								$(win).on("resize scroll", visPx);
+							});
+						};
+					})(jQuery, window)
+				);
+				$(".count-num").inViewport(function (px) {
+					// Make use of the `px` argument!!!
+					// if element entered V.port ( px>0 ) and
+					// if prop initNumAnim flag is not yet set
+					//  = Animate numbers
+					if (px > 0 && !this.initNumAnim) {
+						this.initNumAnim = true; // Set flag to true to prevent re-running the same animation
+						$(this)
+							.prop("Counter", 0)
+							.animate(
+								{
+									Counter: $(this).text(),
+								},
+								{
+									duration: 1000,
+									step: function (now) {
+										$(this).text(Math.ceil(now));
+									},
+								}
+							);
+					}
+				});
+			});
+		</script>
+		<!-- -------------------------------- -->
+		<ul id="counter">
+			<li>
+			  <span class="count percent" data-count="100">
+				0
+			  </span>
+			</li>
+			  <li>
+			  <span class="count percent" data-count="100">
+				0
+			  </span>
+			</li>
+			  <li>
+			  <span class="count percent" data-count="100">
+				0
+			  </span>
+			</li>
+		</ul>
+		<script>
+			var counted = 0;
+			$(window).scroll(function() {
+
+			var oTop = $('.project-num').offset().top - window.innerHeight;
+			if (counted == 0 && $(window).scrollTop() > oTop) {
+				$('.count-num').each(function() {
+				var $this = $(this),
+					countTo = $this.attr('data-count');
+				$({
+					countNum: $this.text()
+				}).animate({
+					countNum: countTo
+					},
+
+					{
+
+					duration: 2000,
+					easing: 'swing',
+					step: function() {
+						$this.text(Math.floor(this.countNum));
+					},
+					complete: function() {
+						$this.text(this.countNum);
+						//alert('finished');
+					}
+
+					});
+				});
+				counted = 1;
+			}
+
+			});
+		</script>
+		<!-- Counter JS -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+		
+		<!-- 😀 On scroll Text move animation -->
+		<div class="a-marquee">
+			<div id="a-marquee-one" class="marquee is-inview">
+				<h2 class="a-client">Johannesberg</h2><h2 class="a-client">.</h2>
+				<h2 class="a-client">Sydney</h2><h2 class="a-client">.</h2>
+				<h2 class="a-client acl-2">Boston</h2><h2 class="a-client">.</h2>
+				<h2 class="a-client acl-2">Calgary</h2><h2 class="a-client">.</h2>
+				<h2 class="a-client acl-2">Ndola</h2><h2 class="a-client">.</h2>
+				<h2 class="a-client acl-2">New Jersey</h2>
+			</div>
+			<div id="a-marquee-two" class="marquee is-inview">
+				<h2 class="a-client">Ahmedabad</h2><h2 class="a-client">.</h2>
+				<h2 class="a-client">Bhuj</h2><h2 class="a-client">.</h2>
+				<h2 class="a-client acl-2">Mumbai</h2><h2 class="a-client">.</h2>
+				<h2 class="a-client acl-2">Karnataka</h2><h2 class="a-client">.</h2>
+				<h2 class="a-client acl-2">Rajasthan</h2><h2 class="a-client">.</h2>
+				<h2 class="a-client acl-2">Haryana</h2>
+			</div>
+		</div>
+		<script>
+			letterCarousel1('.a-marquee','#a-marquee-one');
+				
+			function letterCarousel1(parent_cls,child_cls) {
+				var e = jQuery(parent_cls+' '+child_cls),
+				t = jQuery(window).height();
+				jQuery(window).on("scroll", function() {
+					if (jQuery(parent_cls).length) {
+						var t = jQuery(document).scrollTop() + jQuery(window).height(),
+						n = jQuery(parent_cls).offset().top;
+						
+						if (n <= t) {
+							var i = jQuery(document).scrollTop() - n + jQuery(window).height();
+							var scroll = i - 150;
+							var scroll_slow = scroll + ((scroll/70)/100);
+							var img_scroll = scroll_slow * 30 /100;
+							e.css({
+								transform: "translateX(" + img_scroll + "px)"
+							})
+						}
+					}
+				});
+			}
+			
+			letterCarousel2('.a-marquee','#a-marquee-two');
+			function letterCarousel2(parent_cls,child_cls) {
+				var e = jQuery(parent_cls+' '+child_cls),
+				t = jQuery(window).height();
+				jQuery(window).on("scroll", function() {
+					if (jQuery(parent_cls).length) {
+						var t = jQuery(document).scrollTop() + jQuery(window).height(),
+						n = jQuery(parent_cls).offset().top;
+						
+						if (n <= t) {
+							var i = jQuery(document).scrollTop() - n + jQuery(window).height();
+							var scroll = i - 150;
+							var scroll_slow = scroll + ((scroll/70)/100);
+							var img_scroll = scroll_slow * 30 /100;
+							e.css({
+								transform: "translateX(-" + img_scroll + "px)"
+							})
+						}
+					}
+				});
+			}
+		</script>
+		<!-- On scroll Text move animation -->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+
+		<!-- 😀 Owl Carousel padding on first item with (Stage padding) -->
+		<div class="owl-carousel">
+			<div class="item">
+				<h4>1</h4>
+			</div>
+			<div class="item">
+				<h4>2</h4>
+			</div>
+			<div class="item">
+				<h4>3</h4>
+			</div>
+			<div class="item">
+				<h4>4</h4>
+			</div>
+			<div class="item">
+				<h4>5</h4>
+			</div>
+			<div class="item">
+				<h4>6</h4>
+			</div>
+		</div>
+		<script>
+			$(".owl-carousel").owlCarousel({
+				stagePadding: 40,
+				loop: false,
+				margin: 10,
+				nav: false,
+				items: 3,
+			});
+		</script>
+		<style>
+			/* you can this simple start in right use this code */
+			.owl-stage {
+				right: -40px;
+			}
+
+			/* or start in left use this code simple */
+			.owl-stage {
+				left: -40px;
+			}
+		</style>
+		<!-- Owl Carousel padding on first item with (Stage padding)-->
+		<!----------------------------------------------------------- End ----------------------------------------------------------->
+	</body>
+</html>
