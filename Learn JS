@@ -1,0 +1,84 @@
+DOM -> Documnet Object Model
+
+
+alert("Helllo");
+
+console.log("Hello");
+
+benifits to create external JS File create
+redability file
+Modulari prmot badh ni alag alg file like html css js ni alg file
+browser caching -> speed increase
+
+Window Object -> browswer object not js object
+browser auto matic create 
+lots of properties and methods 
+global object he ye 
+
+window.console.log("Hello");
+window.alert("Hello2");
+
+
+
+
+/****** What Is DOM ? ******/
+Full Form Document Object Model
+in our web page dynamic change or manipulation change ke liye DOM ka use hota he ,
+-> apde je pan HYML Code Lakie che ee badho apde Javascript ma acces kri skie che.
+-> automaic HTML Code ee Javascript ma avi ne object ma convert thay ->e special object ne document kevay 
+-> aa documnet availabel window object ma hoy.
+-> window -> document -> html code in this document
+-> window.documnent -> html code ave console ma 
+-> console.log -> Only print for use / html code print kre
+-> console.dir -> documnts ni properties & methods ne print kre ./ object ne print kravva mate use thay
+-> consol.dir(window.documnt)
+
+
+/****** DOM Manipulation ******/
+Element acces select called DOM manipulation
+
+/* types to acces element Genearl Method */ 
+
+1) Method 1 : document.getElementById("myid")
+
+let heading = document.getElementById("myid")
+console.dir("heading");
+
+2) Method 2 : document.getElementsByClassName("myclass")
+
+let heading = document.getElementsByTagName("myclass")
+console.dir("heading");
+
+3) Method 3 : document.getElementsByTagName("mytag")
+
+let heading = document.getElementsByTagName("p")
+console.dir("p")
+
+3) Method 3 : document.getElementsByTagName("mytag")
+
+let heading = document.getElementsByTagName("p")
+console.dir("p")
+
+
+/* types to acces element another Method */
+Query Selector -> Node list return kre 
+
+4) Method 4 : document.querySelector("myid/myclass/mytag")
+
+let heading = document.querySelector("p")
+console.dir("heading")
+
+5) Method 5 : document.querySelectorAll("myid/myclass/mytag")
+
+let heading = document.querySelector("p")
+console.dir("heading")
+
+/* types to acces element another Method */
+
+
+/****** DOM Manipulation Properties Throught get or set******/
+
+tagname
+innertext
+innerHTML
+textContent
