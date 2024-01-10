@@ -31,6 +31,40 @@ Blog Detail Page -> Template Name -> single.php
 Custom Post List Main Page -> Template Name -> archive-service.php
 Custom Post Detail Page -> Template Name -> single-service.php
 
+================================================================
+ADD CUSTOM METABOX FOR ADD PAGE CUSTOM CLASS IN BODY
+================================================================
+
+function custom_body_class_meta_box() {
+    add_meta_box('custom_body_class', 'Custom Body Class', 'display_custom_body_class_meta_box', 'page', 'side', 'default');
+}
+add_action('add_meta_boxes', 'custom_body_class_meta_box');
+
+
+function display_custom_body_class_meta_box($post) {
+    $custom_body_class = get_post_meta($post->ID, '_custom_body_class', true);
+    ?>
+    <label for="custom_body_class">Custom Body Class:</label>
+    <input type="text" id="custom_body_class" name="custom_body_class" value="<?php echo esc_attr($custom_body_class); ?>">
+    <?php
+}
+
+function save_custom_body_class_meta_box($post_id) {
+    if (isset($_POST['custom_body_class'])) {
+        update_post_meta($post_id, '_custom_body_class', sanitize_text_field($_POST['custom_body_class']));
+    }
+}
+add_action('save_post', 'save_custom_body_class_meta_box');
+
+
+function add_custom_body_class($classes) {
+    $custom_body_class = get_post_meta(get_the_ID(), '_custom_body_class', true);
+    if (!empty($custom_body_class)) {
+        $classes[] = sanitize_html_class($custom_body_class);
+    }
+    return $classes;
+}
+add_filter('body_class', 'add_custom_body_class');
 
 ================================================================
 CUSTOM CONTAINER HTML WITH RESPONSIVE 
