@@ -1,0 +1,62 @@
+<div class="cs-backto-top" id="cs-button-backto-to">
+<a id="button-new"></a>
+</div>
+
+
+// CSS
+#cs-button-backto-to {
+  display: inline-block;
+ background-image: linear-gradient(238deg, #E82325 0%, #8F1E1D 100%);
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+	border-radius: 50%;
+    font-size: 13px;
+}
+#cs-button-backto-to::after {
+  content: "⇧";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#cs-button-backto-to:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+#cs-button-backto-to:active {
+  background-color: #555;
+}
+#cs-button-backto-to.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+// Jquery For Back To Top
+
+var btn = jQuery('#cs-button-backto-to');
+
+jQuery(window).scroll(function() {
+  if (jQuery(window).scrollTop() > 300) {
+    btn.addClass('show');
+  } else {
+    btn.removeClass('show');
+  }
+});
+
+btn.on('click', function(e) {
+  e.preventDefault();
+  jQuery('html, body').animate({scrollTop:0}, '300');
+});
