@@ -130,3 +130,83 @@ hr {
 input, select {
     vertical-align:middle;
 }
+
+
+====================== Container=========================
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px 20px;
+  }
+  
+  @media (max-width: 1600px) {
+    .container {
+      width: 100%;
+      max-width: 1200px;
+    }
+  }
+  
+  @media (max-width: 1440px) {
+    .container {
+      width: 100%;
+      max-width: 1200px;
+    }
+  }
+  
+  @media (max-width: 1366px) {
+    .container {
+      width: 100%;
+      max-width: 1200px;
+    }
+  }
+  
+  @media (max-width: 1280px) {
+    .container {
+      width: 100%;
+      max-width: 1100px; /* or any other value that suits your design */
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .container {
+      width: 100%;
+      max-width: 768px;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .container {
+      width: 100%;
+      max-width: 960px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .container {
+      width: 100%;
+      max-width: 480px;
+    }
+  }
+  
+  @media (max-width: 567px) {
+    .container {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 375px) {
+    .container {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
