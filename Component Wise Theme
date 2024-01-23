@@ -1,0 +1,48 @@
+Our Activ Theme 
+1 -> Templates Main Folder 
+
+====================================================
+
+2- Home Page Folder
+-Section-One.php
+-Section-Two.php
+-Section-Three.php
+
+- About Page Folder
+-Section-One.php
+-Section-Two.php
+-Section-Three.php
+
+- Contact Page Folder
+-Section-One.php
+-Section-Two.php
+-Section-Three.php
+
+====================================================
+
+3- Home Page Folder (For All Pages)
+
+-Section-One.php
+      function section_one_shortcode() {
+            // HTML HERE - SECTION ONE
+      }
+      add_shortcode('section_one', 'section_one_shortcode');
+
+- section-two.php
+      function section_two_shortcode() {
+            // HTML HERE - SECTION TWO 
+      }
+      add_shortcode('section_two', 'section_two_shortcode');
+
+====================================================
+
+4 - Function.php Path integration
+
+function include_template_files() {
+    get_template_part('templates/home/section-one');
+    get_template_part('templates/home/section-two');
+}
+add_action('wp_enqueue_scripts', 'include_template_files');
+
+
+
