@@ -1,0 +1,190 @@
+// Enqueue necessary scripts and styles for media uploader
+function enqueue_media_scripts() {
+    if (!did_action('wp_enqueue_media')) {
+        wp_enqueue_media();
+    }
+}
+add_action('admin_enqueue_scripts', 'enqueue_media_scripts');
+
+// Add featured image upload option to the category edit page
+function add_featured_image_option($term) {
+    $taxonomy = $term->taxonomy;
+
+    // Check if the taxonomy is 'casestudy_category' or 'portfolio_category'
+    if ($taxonomy == 'casestudy_category' || $taxonomy == 'portfolio_category') {
+        $featured_image_id = get_term_meta($term->term_id, 'featured_image_id', true);
+        $image_url = wp_get_attachment_image_url($featured_image_id, 'thumbnail');
+
+        ?>
+        <tr class="form-field">
+            <th scope="row" valign="top"><label for="featured-image"><?php _e('Featured Image'); ?></label></th>
+            <td>
+                <input type="hidden" name="featured_image_id" id="featured-image-id" value="<?php echo esc_attr($featured_image_id); ?>">
+                <div id="featured-image-container">
+                    <?php if ($image_url) : ?>
+                        <img src="<?php echo esc_url($image_url); ?>" alt="Featured Image" class="custom-category-featured-img" style="width:200px; margin-bottom:20px;">
+                    <?php endif; ?>
+                </div>
+                <button type="button" class="button-secondary" id="upload-featured-image"><?php _e('Upload/Edit Image'); ?></button>
+                <button type="button" class="button-secondary" id="remove-featured-image"><?php _e('Remove Image'); ?></button>
+                <p class="description"><?php _e('Upload an image for the featured category.'); ?></p>
+            </td>
+        </tr>
+
+        <script>
+            jQuery(document).ready(function ($) {
+                // Set up the media uploader
+                var mediaUploader;
+
+                // When the "Upload/Edit Image" button is clicked
+                $('#upload-featured-image').on('click', function (e) {
+                    e.preventDefault();
+
+                    // If the media uploader instance exists, open it
+                    if (mediaUploader) {
+                        mediaUploader.open();
+                        return;
+                    }
+
+                    // Create the media uploader
+                    mediaUploader = wp.media.frames.file_frame = wp.media({
+                        title: 'Choose Featured Image',
+                        button: {
+                            text: 'Choose Image'
+                        },
+                        multiple: false
+                    });
+
+                    // When an image is selected, run a callback
+                    mediaUploader.on('select', function () {
+                        var attachment = mediaUploader.state().get('selection').first().toJSON();
+                        $('#featured-image-id').val(attachment.id);
+                        $('#featured-image-container img').attr('src', attachment.url);
+                    });
+
+                    // Open the media uploader
+                    mediaUploader.open();
+                });
+
+                // When the "Remove Image" button is clicked
+                $('#remove-featured-image').on('click', function () {
+                    $('#featured-image-id').val('');
+                    $('#featured-image-container img').attr('src', '');
+                });
+            });
+        </script>
+        <?php
+    }
+}
+add_action('casestudy_category_edit_form_fields', 'add_featured_image_option');
+add_action('portfolio_category_edit_form_fields', 'add_featured_image_option');
+
+// Save the featured image ID
+function save_featured_image($term_id) {
+    if (isset($_POST['featured_image_id'])) {
+        update_term_meta($term_id, 'featured_image_id', absint($_POST['featured_image_id']));
+    } else {
+        delete_term_meta($term_id, 'featured_image_id');
+    }
+}
+add_action('edited_casestudy_category', 'save_featured_image');
+add_action('edited_portfolio_category', 'save_featured_image');
+
+// Display the featured image in the category archive
+function display_featured_image($category_id) {
+    $featured_image_id = get_term_meta($category_id, 'featured_image_id', true);
+    $image_url = wp_get_attachment_image_url($featured_image_id, 'thumbnail');
+
+    if ($image_url) {
+        echo '<img src="' . esc_url($image_url) . '" alt="Featured Image">';
+    }
+}
+add_action('casestudy_category_archives', 'display_featured_image');
+add_action('portfolio_category_archives', 'display_featured_image');
+
+// Add featured image option to the custom post type 'portfolio'
+function add_portfolio_featured_image_option($post) {
+    $featured_image_id = get_post_meta($post->ID, 'featured_image_id', true);
+    $image_url = wp_get_attachment_image_url($featured_image_id, 'thumbnail');
+
+    ?>
+    <div class="form-field">
+        <label for="portfolio-featured-image"><?php _e('Featured Image'); ?></label>
+        <input type="hidden" name="portfolio_featured_image_id" id="portfolio-featured-image-id" value="<?php echo esc_attr($featured_image_id); ?>">
+        <div id="portfolio-featured-image-container">
+            <?php if ($image_url) : ?>
+                <img src="<?php echo esc_url($image_url); ?>" alt="Featured Image" class="custom-portfolio-featured-img" style="width:200px; margin-bottom:20px;">
+            <?php endif; ?>
+        </div>
+        <button type="button" class="button-secondary" id="upload-portfolio-featured-image"><?php _e('Upload/Edit Image'); ?></button>
+        <button type="button" class="button-secondary" id="remove-portfolio-featured-image"><?php _e('Remove Image'); ?></button>
+        <p class="description"><?php _e('Upload an image for the featured portfolio item.'); ?></p>
+    </div>
+
+    <script>
+        jQuery(document).ready(function ($) {
+            // Set up the media uploader
+            var mediaUploader;
+
+            // When the "Upload/Edit Image" button is clicked
+            $('#upload-portfolio-featured-image').on('click', function (e) {
+                e.preventDefault();
+
+                // If the media uploader instance exists, open it
+                if (mediaUploader) {
+                    mediaUploader.open();
+                    return;
+                }
+
+                // Create the media uploader
+                mediaUploader = wp.media.frames.file_frame = wp.media({
+                    title: 'Choose Featured Image',
+                    button: {
+                        text: 'Choose Image'
+                    },
+                    multiple: false
+                });
+
+                // When an image is selected, run a callback
+                mediaUploader.on('select', function () {
+                    var attachment = mediaUploader.state().get('selection').first().toJSON();
+                    $('#portfolio-featured-image-id').val(attachment.id);
+                    $('#portfolio-featured-image-container img').attr('src', attachment.url);
+                });
+
+                // Open the media uploader
+                mediaUploader.open();
+            });
+
+            // When the "Remove Image" button is clicked
+            $('#remove-portfolio-featured-image').on('click', function () {
+                $('#portfolio-featured-image-id').val('');
+                $('#portfolio-featured-image-container img').attr('src', '');
+            });
+        });
+    </script>
+    <?php
+}
+add_action('portfolio_add_form_fields', 'add_portfolio_featured_image_option');
+add_action('portfolio_edit_form_fields', 'add_portfolio_featured_image_option');
+
+// Save the featured image ID for the custom post type 'portfolio'
+function save_portfolio_featured_image($post_id) {
+    if (isset($_POST['portfolio_featured_image_id'])) {
+        update_post_meta($post_id, 'featured_image_id', absint($_POST['portfolio_featured_image_id']));
+    } else {
+        delete_post_meta($post_id, 'featured_image_id');
+    }
+}
+add_action('save_post_portfolio', 'save_portfolio_featured_image');
+
+// Display the featured image in the custom post type 'portfolio'
+function display_portfolio_featured_image($post_id) {
+    $featured_image_id = get_post_meta($post_id, 'featured_image_id', true);
+    $image_url = wp_get_attachment_image_url($featured_image_id, 'thumbnail');
+
+    if ($image_url) {
+        echo '<img src="' . esc_url($image_url) . '" alt="Featured Image">';
+    }
+}
+add_action('portfolio_single', 'display_portfolio_featured_image');
